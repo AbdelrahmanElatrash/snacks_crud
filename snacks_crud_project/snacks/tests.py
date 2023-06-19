@@ -52,3 +52,12 @@ class TestSnack(TestCase):
         url = reverse('create_snack')
         response = self.client.post(path=url,data=obj,follow=True)
         self.assertRedirects(response, reverse('detailview', args=[2]))
+
+
+    
+    def test_update_view():
+        pass
+
+
+    def test_delete_view():
+        pass
