@@ -15,4 +15,4 @@ class Snack(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('snacks')
+        return reverse('delete_snack',args=[self.id])

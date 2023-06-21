@@ -29,7 +29,7 @@ class SnackUpdateView(UpdateView):
     template_name='update_snack.html'
     model=Snack
     fields="__all__"
-    success_url=reverse_lazy('things')
+    success_url=reverse_lazy('snacks')
 
 
 class SnackDeleteView(DeleteView):

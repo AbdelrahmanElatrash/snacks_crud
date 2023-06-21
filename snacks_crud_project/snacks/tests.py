@@ -51,13 +51,25 @@ class TestSnack(TestCase):
 
         url = reverse('create_snack')
         response = self.client.post(path=url,data=obj,follow=True)
-        self.assertRedirects(response, reverse('detailview', args=[2]))
+        self.assertRedirects(response, reverse('delete_snack', args=[2]))
 
 
     
-    def test_update_view():
-        pass
+    def test_update_view(self):
+        obj={
+            'title':"test2",
+            'description': "info...",
+            'purchaser': self.user.id
+        }
+
+        url = reverse('update_snack',args=[self.snack.id])
+        response = self.client.post(path=url,data=obj,follow=True)
+        # self.assertRedirects(response, reverse('snacks', args=[2]))
+        self.assertEqual(response.status_code, 200)
 
 
-    def test_delete_view():
-        pass
+    def test_delete_view(self):
+        url = reverse('delete_snack',args=[self.snack.id])
+        response = self.client.delete(path=url,follow=True)
+        # self.assertRedirects(response, reverse('snacks'))
+        self.assertEqual(response.status_code, 200)
