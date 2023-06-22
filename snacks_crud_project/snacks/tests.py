@@ -51,7 +51,7 @@ class TestSnack(TestCase):
 
         url = reverse('create_snack')
         response = self.client.post(path=url,data=obj,follow=True)
-        self.assertRedirects(response, reverse('delete_snack', args=[2]))
+        self.assertRedirects(response, reverse('detailview', args=[2]))
 
 
     
